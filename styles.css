@@ -1,0 +1,167 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131313;
+}
+
+header {
+    background-color: #1b1b1b;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    margin-right: auto;
+    font-family: "Inter Tight";
+font-weight: 800;
+color: white;
+text-decoration: none;
+}
+
+.app-details {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #131313;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-family: "Inter Tight";
+font-weight: 600;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: "Inter Tight";
+font-weight: 700;
+}
+
+.app-logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.app-name {
+    font-size: 28px;
+    margin: 0;
+    padding-bottom: 50px;
+    color: white;
+font-family: "Inter Tight";
+font-weight: 800;
+}
+
+.app-info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.install-btn {
+    background-color: #A8C8FB;
+    border: none;
+    color: #012660;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    height:40px;
+    width: 100%;
+    font-family: "Inter Tight";
+font-weight: 600;
+margin-top: 20px;
+text-decoration: none;
+padding-left: 180px;
+padding-right: 180px;
+}
+
+.install-btn:hover {
+    background-color: #A8C9FB;
+    
+}
+
+.screenshots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.screenshots img {
+    width: 100%;
+    height: auto;
+    margin: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.733);
+    transition: transform 0.3s;
+}
+
+.screenshots img:hover {
+    transform: box-shadow(1.5);
+    box-shadow: 0 0px 15px rgba(12, 12, 12, 0.288);
+}
+
+.sigma {
+    color: white;
+    font-family: "Inter Tight";
+font-weight: 800;
+    
+}
+  
+  .pp {
+      padding: 0px;
+      margin: 0;
+  }  
+  .pp2 {
+      padding-bottom:10px ;
+      margin: 0;
+      margin-bottom: 20px;
+  }  
+.sigma2 {
+    color:#cfcfcf ;
+font-family: "Inter Tight";
+font-weight: 500;
+    
+}
+
+.a123 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0px;
+}
+.bt {
+    background-color:#13131300;
+    color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    border-color: #ffffff00 ;
+    box-sizing: 1px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.sigmaa {
+    color: white;
+    font-family: "Inter Tight";
+font-weight: 800;
+    margin-top: 50px;
+}
+.sigma22 {
+    color:#cfcfcf ;
+font-family: "Inter Tight";
+font-weight: 500;
+    
+margin-top: 20px;
+}
+.vid{
+    width: 100%;
+    height: 249px;
+    margin-top: 20px;
+}
