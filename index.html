@@ -1,53 +1,102 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markusell games SigmaStore</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
 <body>
-    <header>
-        <a href="http://markusell.tilda.ws" class="logo">MarkusellStore 🛒</a>
-        <a class="boosty" href="https://boosty.to/markusell">BOOSTY</a>
-    </header>
-    <main>
-        <section class="app-details">
-            <div class="app-header">
-                <img src="Logo.png" alt="App Logo" class="app-logo">
-                <h1 class="app-name">БЛОП ГЛИТЧ</h1>
-            </div>
-            <div class="app-info">
-                <p class="pp">1,000+</p>
-                <p class="pp2">Скачиваний</p>
-                <form action="https://www.dropbox.com/scl/fi/zcononlfmch83i8etqt2i/1-1.apk?rlkey=r810vwfw1alx2s0m3zqyp9dy1&st=3540hzi0&dl=1" target="">
-                <a href="https://www.dropbox.com/scl/fi/zcononlfmch83i8etqt2i/1-1.apk?rlkey=r810vwfw1alx2s0m3zqyp9dy1&st=3540hzi0&dl=1" class="install-btn">Установить</a>
-            </form>
-            </div>
-            <div class="screenshots">
-                <button class="bt">❮</button>
-                <img src="1.png" alt="Screenshot 1" class="screenshot">
-                <button class="bt">❯</button>
-            </div>
-            <div>
-                <h2 class="sigma">Описание:</h2>
-                <h4 class="sigma2">Игра "БЛОП ГЛИТЧ" от markusell games рассказывает о жизни Александера - ученого, который изобрел глитч портал, но в итоге он погубил город. Его заразил глитч вирус который перешёл и на игрушки, а в итоге в городе остался один Александер, который и должен исправить все, что натворил, проходя через множество испытаний и т.д. Капибара, хренобусы и щлепа - это те кого вы встретите на своем пути. Собирайте БЛОПСЫ, чтобы насытиться и вернуть БЛОПсити в исходное состояние!</h4>
-              <p></p>
-                <h2 class="sigmaa">Как поиграть?</h2>
-                <h3 class="sigma2">1. Нажми на кнопку "Установить"</h3>
-                <h3 class="sigma22">2. Дождись скачивания файла</h3>
-                <h3 class="sigma22">3. Открой файл и установи игру</h3>
-                 <p></p>
-                <h2 class="sigmaa">Игра не работает?</h2>
-                <h3 class="sigma2">1. На телефоне должно быть не менее 3ГБ свободного места ( Игра весит 90МБ )</h3>
-                <h3 class="sigma22">2. Ваш телефон долен иметь мощный процессор</h3>
-            </div>
-            <iframe class="vid"  src="https://www.youtube.com/embed/80fkhybpMIA?si=Yotnbb_U9zCPNoIA" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
-    </main>
-    <script src="main.js"></script>
+  <div class="container">
+    <div class="social-buttons">
+      <a href="https://youtube.com" class="youtube">YouTube</a>
+      <a href="https://t.me" class="telegram">Telegram</a>
+      <a href="https://tiktok.com" class="tiktok">TikTok</a>
+    </div>
+
+    <div class="logo-title">
+      <img src="logo.png" alt="Логотип" />
+      <h1>Markusell Games</h1>
+    </div>
+
+    <p class="description">Независимая студия разработки игр на Unity. Мы создаём атмосферные проекты с душой и вниманием к деталям.</p>
+    
+    <div class="game-card">
+      <div class="game-header">
+        <div class="game-title">Risa AI</div>
+        <div class="status" data-status="В разработке">В разработке</div>
+      </div>
+      <div class="game-description">Игра об искусственном интеллекте, который учится понимать людей.</div>
+      <div class="slideshow" id="slideshow1">
+        <img src="https://via.placeholder.com/600x300?text=Risa+1" class="active" />
+        <img src="https://via.placeholder.com/600x300?text=Risa+2" />
+        <img src="https://via.placeholder.com/600x300?text=Risa+3" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="game-card">
+      <div class="game-header">
+        <div class="game-title">Тарелка</div>
+        <div class="status" data-status="Выпущено">Выпущено</div>
+      </div>
+      <div class="game-description">Фантастическая история о пришельцах и странной тарелке в лесу.</div>
+      <div class="slideshow" id="slideshow2">
+        <img src="https://via.placeholder.com/600x300?text=Plate+1" class="active" />
+        <img src="https://via.placeholder.com/600x300?text=Plate+2" />
+        <img src="https://via.placeholder.com/600x300?text=Plate+3" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="game-card">
+      <div class="game-header">
+        <div class="game-title">Закат Unplug</div>
+        <div class="status" data-status="На паузе">На паузе</div>
+      </div>
+      <div class="game-description">Медитативная игра о закате, одиночестве и отключении от сети.</div>
+      <div class="slideshow" id="slideshow3">
+        <img src="https://via.placeholder.com/600x300?text=Sunset+1" class="active" />
+        <img src="https://via.placeholder.com/600x300?text=Sunset+2" />
+        <img src="https://via.placeholder.com/600x300?text=Sunset+3" />
+      </div>
+    </div>
+
+    <div class="store-buttons">
+      <a href="https://play.google.com/store/apps" class="google-play">Google Play</a>
+      <a href="https://itch.io" class="itch-io">Itch.io</a>
+    </div>
+  </div>
+
+  <script>
+    // Слайд-шоу для каждой игры
+    function startSlideshow(id) {
+      const container = document.getElementById(id);
+      const images = container.querySelectorAll('img');
+      let index = 0;
+
+      setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 3000);
+    }
+
+    // Запуск слайд-шоу
+    startSlideshow('slideshow1');
+    startSlideshow('slideshow2');
+    startSlideshow('slideshow3');
+
+    // Анимация появления карточек
+    window.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.game-card');
+      cards.forEach((card, i) => {
+        setTimeout(() => {
+          card.classList.add('visible');
+        }, i * 300);
+      });
+
+      // Задержка для названия и описания
+      setTimeout(() => {
+        const titles = document.querySelectorAll('.game-title');
+        const descriptions = document.querySelectorAll('.game-description');
+        titles.forEach(el => el.classList.add('visible'));
+        descriptions.forEach(el => el.classList.add('visible'));
+      }, 1000);
+    });
+  </script>
 </body>
-</html>
