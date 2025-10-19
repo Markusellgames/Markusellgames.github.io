@@ -153,14 +153,30 @@
     }
 
     .status {
-      background-color: #e8f5e9;
-      border: 2px solid #2e7d32;
-      color: #2e7d32;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-weight: bold;
-      font-size: 0.9em;
-    }
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 0.9em;
+  display: inline-block;
+}
+
+.status[data-status="В разработке"] {
+  background-color: #fff8e1;
+  border: 2px solid #fbc02d;
+  color: #fbc02d;
+}
+
+.status[data-status="На паузе"] {
+  background-color: #eeeeee;
+  border: 2px solid #616161;
+  color: #616161;
+}
+
+.status[data-status="Выпущено"] {
+  background-color: #e8f5e9;
+  border: 2px solid #2e7d32;
+  color: #2e7d32;
+}
 
     .slideshow {
       position: relative;
