@@ -179,7 +179,24 @@
     .slideshow img.active {
       display: block;
     }
-
+    
+.game-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+      
+.game-card {
+  cursor: pointer;
+}
+    
+.game-link:focus,
+.game-link:active,
+.game-link:hover {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+      }
    .divider {
   height: 1px;
   background-color: #ccc;
@@ -207,48 +224,55 @@
     </div>
 
     <p class="description">Независимая студия разработки игр на Unity. Мы создаём атмосферные проекты с душой и вниманием к деталям.</p>
-    <div class="game-card">
-      <div class="game-header">
-        <div class="game-title">Risa AI</div>
-        <div class="status">В разработке</div>
+
+    <a class="game-link" href="https://markusell.com/risa-ai">
+      <div class="game-card">
+        <div class="game-header">
+          <div class="game-title">Risa AI</div>
+          <div class="status" data-status="В разработке">В разработке</div>
+        </div>
+        <div class="game-description">Игра об искусственном интеллекте, который учится понимать людей.</div>
+        <div class="slideshow" id="slideshow1">
+          <img src="https://via.placeholder.com/600x300?text=Risa+1" class="active" />
+          <img src="https://via.placeholder.com/600x300?text=Risa+2" />
+          <img src="https://via.placeholder.com/600x300?text=Risa+3" />
+        </div>
       </div>
-      <div class="game-description">Игра об искусственном интеллекте, который учится понимать людей.</div>
-      <div class="slideshow" id="slideshow1">
-        <img src="https://via.placeholder.com/600x300?text=Risa+1" class="active" />
-        <img src="https://via.placeholder.com/600x300?text=Risa+2" />
-        <img src="https://via.placeholder.com/600x300?text=Risa+3" />
-      </div>
-    </div>
+    </a>
 
     <div class="divider"></div>
 
-    <div class="game-card">
-      <div class="game-header">
-        <div class="game-title">Тарелка</div>
-        <div class="status">Выпущено</div>
+    <a class="game-link" href="https://markusell.com/tarelka">
+      <div class="game-card">
+        <div class="game-header">
+          <div class="game-title">Тарелка</div>
+          <div class="status" data-status="Выпущено">Выпущено</div>
+        </div>
+        <div class="game-description">Фантастическая история о пришельцах и странной тарелке в лесу.</div>
+        <div class="slideshow" id="slideshow2">
+          <img src="https://via.placeholder.com/600x300?text=Plate+1" class="active" />
+          <img src="https://via.placeholder.com/600x300?text=Plate+2" />
+          <img src="https://via.placeholder.com/600x300?text=Plate+3" />
+        </div>
       </div>
-      <div class="game-description">Фантастическая история о пришельцах и странной тарелке в лесу.</div>
-      <div class="slideshow" id="slideshow2">
-        <img src="https://via.placeholder.com/600x300?text=Plate+1" class="active" />
-        <img src="https://via.placeholder.com/600x300?text=Plate+2" />
-        <img src="https://via.placeholder.com/600x300?text=Plate+3" />
-      </div>
-    </div>
+    </a>
 
     <div class="divider"></div>
 
-    <div class="game-card">
-      <div class="game-header">
-        <div class="game-title">Закат Unplug</div>
-        <div class="status">На паузе</div>
+    <a class="game-link" href="https://markusell.com/unplug">
+      <div class="game-card">
+        <div class="game-header">
+          <div class="game-title">Закат Unplug</div>
+          <div class="status" data-status="На паузе">На паузе</div>
+        </div>
+        <div class="game-description">Медитативная игра о закате, одиночестве и отключении от сети.</div>
+        <div class="slideshow" id="slideshow3">
+          <img src="https://via.placeholder.com/600x300?text=Sunset+1" class="active" />
+          <img src="https://via.placeholder.com/600x300?text=Sunset+2" />
+          <img src="https://via.placeholder.com/600x300?text=Sunset+3" />
+        </div>
       </div>
-      <div class="game-description">Медитативная игра о закате, одиночестве и отключении от сети.</div>
-      <div class="slideshow" id="slideshow3">
-        <img src="https://via.placeholder.com/600x300?text=Sunset+1" class="active" />
-        <img src="https://via.placeholder.com/600x300?text=Sunset+2" />
-        <img src="https://via.placeholder.com/600x300?text=Sunset+3" />
-      </div>
-    </div>
+    </a>
 
     <div class="store-buttons">
       <a href="https://play.google.com/store/apps" class="google-play">Google Play</a>
