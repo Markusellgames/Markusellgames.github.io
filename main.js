@@ -1,3 +1,20 @@
+// ── Sticky bar ────────────────────────────────────────────────────────────
+function initStickyBar() {
+  const bar  = document.getElementById('sticky-bar');
+  const hero = document.getElementById('hero');
+  if (!bar || !hero) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      // show bar when hero is no longer visible
+      bar.classList.toggle('visible', !entry.isIntersecting);
+      bar.setAttribute('aria-hidden', entry.isIntersecting ? 'true' : 'false');
+    },
+    { threshold: 0, rootMargin: '0px 0px 0px 0px' }
+  );
+  observer.observe(hero);
+}
+
 // ── Slideshow ─────────────────────────────────────────────────────────────
 function initSlideshows() {
   document.querySelectorAll('.js-slideshow').forEach((wrap) => {
@@ -8,9 +25,8 @@ function initSlideshows() {
 
     if (!slides.length) return;
 
-    // Track which images loaded/errored
-    const loaded = slides.map(() => false);
     const errored = slides.map(() => false);
+    const loaded  = slides.map(() => false);
     let cur = 0;
     let timer = null;
 
@@ -20,16 +36,19 @@ function initSlideshows() {
 
     function show(idx) {
       slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-      dotsEl.querySelectorAll('.slide-dot').forEach((d, i) => {
-        d.classList.toggle('active', validIndices()[i] === idx);
-      });
+      const dots = dotsEl ? dotsEl.querySelectorAll('.slide-dot') : [];
+      const valid = validIndices();
+      dots.forEach((d, i) => d.classList.toggle('active', valid[i] === idx));
       cur = idx;
-
-      const hasVisible = validIndices().length > 0 && loaded[idx];
-      if (placeholder) placeholder.classList.toggle('hidden', hasVisible);
+      // hide placeholder once we have a real image
+      if (placeholder) {
+        const showing = !errored[idx] && loaded[idx];
+        placeholder.classList.toggle('hidden', showing);
+      }
     }
 
     function buildDots() {
+      if (!dotsEl) return;
       dotsEl.innerHTML = '';
       const valid = validIndices();
       if (valid.length <= 1) return;
@@ -46,8 +65,7 @@ function initSlideshows() {
       const valid = validIndices();
       if (valid.length < 2) return;
       const pos = valid.indexOf(cur);
-      const nextIdx = valid[(pos + 1) % valid.length];
-      show(nextIdx);
+      show(valid[(pos + 1) % valid.length]);
     }
 
     function resetTimer() {
@@ -65,7 +83,6 @@ function initSlideshows() {
       img.addEventListener('error', () => {
         errored[i] = true;
         buildDots();
-        // Try the next valid slide if current errored
         if (i === cur) {
           const valid = validIndices();
           if (valid.length) show(valid[0]);
@@ -73,16 +90,15 @@ function initSlideshows() {
       });
     });
 
-    // Start timer anyway (images might already be cached)
     resetTimer();
   });
 }
 
-// ── Vertical progress bars ────────────────────────────────────────────────
-function initVBars() {
-  const fills = document.querySelectorAll('.js-vbar');
+// ── Image progress bars (on WIP cards) ───────────────────────────────────
+function initImgProgress() {
+  const fills = document.querySelectorAll('.js-img-progress');
   if (!('IntersectionObserver' in window)) {
-    fills.forEach((f) => { f.style.height = f.dataset.pct + '%'; });
+    fills.forEach((f) => { f.style.width = f.dataset.pct + '%'; });
     return;
   }
   const observer = new IntersectionObserver(
@@ -90,7 +106,7 @@ function initVBars() {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const fill = entry.target;
-        setTimeout(() => { fill.style.height = fill.dataset.pct + '%'; }, 250);
+        setTimeout(() => { fill.style.width = fill.dataset.pct + '%'; }, 200);
         observer.unobserve(fill);
       });
     },
@@ -116,7 +132,7 @@ function initCards() {
         observer.unobserve(card);
       });
     },
-    { threshold: 0.08 }
+    { threshold: 0.06 }
   );
   cards.forEach((c) => observer.observe(c));
 }
@@ -147,7 +163,8 @@ function initHero() {
 // ── Boot ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initHero();
+  initStickyBar();
   initCards();
-  initVBars();
+  initImgProgress();
   initSlideshows();
 });

@@ -35,6 +35,56 @@ img { display: block; }
   padding: 0 24px;
 }
 
+/* ── Sticky bar ────────────────────────────────────────── */
+#sticky-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 10px 0;
+  background: rgba(9, 9, 15, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transform: translateY(-110%);
+  opacity: 0;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity   0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+#sticky-bar.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.sticky-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sticky-logo {
+  height: 28px;
+  width: 28px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.sticky-name {
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  line-height: 1;
+}
+.sticky-dev {
+  background: linear-gradient(90deg, #a78bfa, #e879f9, #38bdf8, #f472b6, #a78bfa);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-gradient 5s ease infinite;
+}
+
 /* ── Buttons ───────────────────────────────────────────── */
 .btn {
   display: inline-flex;
@@ -156,8 +206,6 @@ img { display: block; }
   z-index: 1;
 }
 
-.hero-title-block { }
-
 .hero-row {
   display: flex;
   flex-wrap: wrap;
@@ -174,7 +222,21 @@ img { display: block; }
   flex-shrink: 0;
 }
 
-/* Shimmer on DEV */
+/* Logo in title */
+.logo-img {
+  display: inline-block;
+  height: 0.85em;
+  width: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.12em;
+  vertical-align: middle;
+  margin-right: 0.12em;
+  position: relative;
+  top: -0.05em;
+}
+
+/* Shimmer */
 @keyframes shimmer-gradient {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -298,14 +360,59 @@ img { display: block; }
   letter-spacing: -0.02em;
   opacity: 0.2;
 }
+
+/* ── Image progress bar (overlay, WIP cards) ───────────── */
+.img-progress {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 5;
+  padding: 10px 12px 8px;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.0) 100%);
+}
+.img-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.img-progress-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.55);
+}
+.img-progress-pct {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.img-progress-track {
+  height: 3px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+.img-progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  width: 0%;
+  transition: width 1s ease-out;
+}
+
 .slide-dots {
   position: absolute;
-  bottom: 10px;
+  bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 6px;
-  z-index: 2;
+  z-index: 6;
+}
+/* push dots up if progress bar is present */
+.img-progress ~ .slide-dots,
+.slideshow:has(.img-progress) .slide-dots {
+  bottom: 52px;
 }
 .slide-dot {
   width: 6px; height: 6px;
@@ -381,12 +488,10 @@ img { display: block; }
   flex: 1;
 }
 
-/* ── Card footer (button OR soon + vbar) ───────────────── */
 .card-footer {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
   margin-top: 4px;
 }
 .card-soon {
@@ -395,46 +500,6 @@ img { display: block; }
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(255,255,255,0.18);
-}
-
-/* ── Vertical progress bar ─────────────────────────────── */
-.vbar-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-  height: 80px;
-}
-.vbar-label {
-  font-size: 0.55rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.25);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-.vbar-track {
-  flex: 1;
-  width: 10px;
-  border-radius: 99px;
-  background: rgba(255,255,255,0.08);
-  position: relative;
-  overflow: hidden;
-  min-height: 40px;
-}
-.vbar-fill {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  border-radius: 99px;
-  height: 0%;
-  transition: height 1s ease-out;
-}
-.vbar-pct {
-  font-size: 0.65rem;
-  font-weight: 700;
-  line-height: 1;
 }
 
 /* ── Fundraiser ────────────────────────────────────────── */
