@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- STICKY BAR (hidden until hero scrolls out) -->
+  <!-- STICKY BAR -->
   <div id="sticky-bar" aria-hidden="true">
     <div class="sticky-inner container">
       <img src="1000073415.png" class="sticky-logo" alt="" />
@@ -18,14 +18,12 @@
 
   <!-- HEADER -->
   <header class="hero" id="hero">
-    <!-- Slime blobs -->
     <div class="slime-wrap" aria-hidden="true">
       <div class="slime-blob slime-blob-1"></div>
       <div class="slime-blob slime-blob-2"></div>
       <div class="slime-blob slime-blob-3"></div>
       <div class="slime-blob slime-blob-4"></div>
     </div>
-
     <div class="container hero-inner">
       <div class="hero-title-block">
         <h1 class="logo-title">
@@ -33,7 +31,6 @@
           <span class="name">Markusell</span><span class="dev"> Dev</span>
         </h1>
       </div>
-
       <div class="hero-row">
         <p class="tagline">Делаю игры и приложения. Иногда с чуваками.</p>
         <div class="social-row">
@@ -54,8 +51,10 @@
     </div>
   </header>
 
-  <!-- PROJECTS -->
+  <!-- MAIN -->
   <main>
+
+    <!-- PROJECTS -->
     <section class="projects-section">
       <div class="container">
         <div class="section-heading">
@@ -63,150 +62,329 @@
           <div class="section-line"></div>
         </div>
 
-        <div class="grid">
+        <div class="proj-list">
 
-          <!-- Kurapov's Burgers -->
-          <article class="card js-card" data-index="0">
-            <div class="card-accent-bar" style="background: linear-gradient(90deg, #f97316cc, transparent)"></div>
-            <div class="slideshow js-slideshow" data-accent="#f97316" data-title="Kurapov's Burgers">
-              <div class="slideshow-inner">
-                <img src="kura1.png" alt="" class="slide" />
-                <img src="kura2.png" alt="" class="slide" />
-                <img src="kura3.png" alt="" class="slide" />
+          <!-- ① ДВЕРИ (новый, активная разработка) -->
+          <div class="proj-item js-proj-item" data-id="doors">
+            <button class="proj-row" data-proj="doors" aria-expanded="false">
+              <div class="proj-row-bg" style="background-image:url(sigma1.png)"></div>
+              <div class="proj-row-left">
+                <span class="proj-row-title">Двери</span>
+                <span class="proj-row-desc">Horror в стиле DOORS на Unity</span>
               </div>
-              <div class="slide-placeholder" style="background: linear-gradient(135deg, rgba(249,115,22,0.13), rgba(249,115,22,0.04))">
-                <span style="color:#f97316">Kurapov's Burgers</span>
+              <div class="proj-row-right">
+                <span class="pill" style="color:#e11d48;border-color:rgba(225,29,72,.3);background:rgba(225,29,72,.08)">PC</span>
+                <span class="badge badge--active"><span class="badge-dot"></span>В разработке</span>
+                <span class="proj-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
               </div>
-              <!-- Horizontal progress overlay (WIP only) -->
-              <div class="img-progress">
-                <div class="img-progress-top">
-                  <span class="img-progress-label">Прогресс разработки</span>
-                  <span class="img-progress-pct" style="color:#f97316">60%</span>
+            </button>
+            <div class="proj-panel" id="proj-panel-doors">
+              <div class="proj-panel-inner card js-card-inner" data-index="0">
+                <div class="card-accent-bar" style="background:linear-gradient(90deg,#e11d48cc,transparent)"></div>
+                <div class="slideshow js-slideshow" data-accent="#e11d48" data-title="Двери">
+                  <div class="slideshow-inner">
+                    <img src="sigma1.png" alt="" class="slide"/>
+                    <img src="sigma2.png" alt="" class="slide"/>
+                    <img src="sigma3.png" alt="" class="slide"/>
+                  </div>
+                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(225,29,72,.13),rgba(225,29,72,.04))">
+                    <span style="color:#e11d48">Двери</span>
+                  </div>
+                  <div class="img-progress">
+                    <div class="img-progress-top">
+                      <span class="img-progress-label">Прогресс разработки</span>
+                      <span class="img-progress-pct" style="color:#e11d48">10%</span>
+                    </div>
+                    <div class="img-progress-track">
+                      <div class="img-progress-fill js-img-progress" data-pct="10" style="background:linear-gradient(90deg,#e11d48,#fb7185)"></div>
+                    </div>
+                  </div>
+                  <div class="slide-dots js-dots"></div>
                 </div>
-                <div class="img-progress-track">
-                  <div class="img-progress-fill js-img-progress" data-pct="60" style="background: linear-gradient(90deg, #f97316, #fb923c)"></div>
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class="card-date">2025 — сейчас</span>
+                    <span class="badge badge--active"><span class="badge-dot"></span>В разработке</span>
+                  </div>
+                  <p class="card-title">Двери</p>
+                  <div class="platform-pills">
+                    <span class="pill" style="color:#e11d48;border-color:rgba(225,29,72,.3);background:rgba(225,29,72,.08)">PC</span>
+                    <span class="pill" style="color:#e11d48;border-color:rgba(225,29,72,.3);background:rgba(225,29,72,.08)">Unity</span>
+                  </div>
+                  <p class="card-desc">Horror-исследование в стиле DOORS. Проходишь комнаты, за каждой дверью — что-то новое. Очень ранняя стадия.</p>
+                  <div class="card-footer"><p class="card-soon">Скоро</p></div>
                 </div>
               </div>
-              <div class="slide-dots js-dots"></div>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-date">2024 — сейчас</span>
-                <span class="badge badge--wip">В разработке</span>
-              </div>
-              <p class="card-title">Kurapov's Burgers</p>
-              <div class="platform-pills">
-                <span class="pill" style="color:#f97316; border-color:rgba(249,115,22,0.27); background:rgba(249,115,22,0.06)">Windows</span>
-              </div>
-              <p class="card-desc">История про бургерного дилера Ивана Курапова. Детализированная игра с механиками управления заведением.</p>
-              <div class="card-footer">
-                <p class="card-soon">Заморожен</p>
-              </div>
-            </div>
-          </article>
+          </div>
 
-          <!-- Пельmanь онлайн -->
-          <article class="card js-card" data-index="1">
-            <div class="card-accent-bar" style="background: linear-gradient(90deg, #60a5facc, transparent)"></div>
-            <div class="slideshow js-slideshow" data-accent="#60a5fa" data-title="Пельmanь онлайн">
-              <div class="slideshow-inner">
-                <img src="pelmen1.png" alt="" class="slide" />
+          <!-- ② Kurapov's Burgers (заморозка) -->
+          <div class="proj-item js-proj-item" data-id="kurapov">
+            <button class="proj-row" data-proj="kurapov" aria-expanded="false">
+              <div class="proj-row-bg" style="background-image:url(kura1.png)"></div>
+              <div class="proj-row-left">
+                <span class="proj-row-title">Kurapov's Burgers</span>
+                <span class="proj-row-desc">Бургерный дилер Курапов</span>
               </div>
-              <div class="slide-placeholder" style="background: linear-gradient(135deg, rgba(96,165,250,0.13), rgba(96,165,250,0.04))">
-                <span style="color:#60a5fa">Пельmanь онлайн</span>
+              <div class="proj-row-right">
+                <span class="pill" style="color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)">Windows</span>
+                <span class="badge badge--frozen">В заморозке</span>
+                <span class="proj-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
               </div>
-              <div class="img-progress">
-                <div class="img-progress-top">
-                  <span class="img-progress-label">Прогресс разработки</span>
-                  <span class="img-progress-pct" style="color:#60a5fa">40%</span>
+            </button>
+            <div class="proj-panel" id="proj-panel-kurapov">
+              <div class="proj-panel-inner card js-card-inner" data-index="1">
+                <div class="card-accent-bar" style="background:linear-gradient(90deg,#f97316cc,transparent)"></div>
+                <div class="slideshow js-slideshow" data-accent="#f97316" data-title="Kurapov's Burgers">
+                  <div class="slideshow-inner">
+                    <img src="kura1.png" alt="" class="slide"/>
+                    <img src="kura2.png" alt="" class="slide"/>
+                    <img src="kura3.png" alt="" class="slide"/>
+                  </div>
+                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(249,115,22,.13),rgba(249,115,22,.04))">
+                    <span style="color:#f97316">Kurapov's Burgers</span>
+                  </div>
+                  <div class="img-progress">
+                    <div class="img-progress-top">
+                      <span class="img-progress-label">Прогресс разработки</span>
+                      <span class="img-progress-pct" style="color:#f97316">60%</span>
+                    </div>
+                    <div class="img-progress-track">
+                      <div class="img-progress-fill js-img-progress" data-pct="60" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div>
+                    </div>
+                  </div>
+                  <div class="slide-dots js-dots"></div>
                 </div>
-                <div class="img-progress-track">
-                  <div class="img-progress-fill js-img-progress" data-pct="40" style="background: linear-gradient(90deg, #60a5fa, #93c5fd)"></div>
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class="card-date">2024</span>
+                    <span class="badge badge--frozen">В заморозке</span>
+                  </div>
+                  <p class="card-title">Kurapov's Burgers</p>
+                  <div class="platform-pills">
+                    <span class="pill" style="color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)">Windows</span>
+                  </div>
+                  <p class="card-desc">История про бургерного дилера Ивана Курапова. Детализированная игра с механиками управления заведением. Временно на паузе.</p>
+                  <div class="card-footer"><p class="card-soon">На паузе</p></div>
                 </div>
               </div>
-              <div class="slide-dots js-dots"></div>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-date">2025 — сейчас</span>
-                <span class="badge badge--wip">В разработке</span>
-              </div>
-              <p class="card-title">Пельmanь онлайн</p>
-              <div class="platform-pills">
-                <span class="pill" style="color:#60a5fa; border-color:rgba(96,165,250,0.27); background:rgba(96,165,250,0.06)">Windows</span>
-                <span class="pill" style="color:#60a5fa; border-color:rgba(96,165,250,0.27); background:rgba(96,165,250,0.06)">Мультиплеер</span>
-              </div>
-              <p class="card-desc">Побег пельменей из морозилки. Онлайн-мультиплеер с друзьями и хаотичный геймплей.</p>
-              <div class="card-footer">
-                <p class="card-soon">Заморожен</p>
-              </div>
-            </div>
-          </article>
+          </div>
 
-          <!-- Загребука -->
-          <article class="card js-card" data-index="2">
-            <div class="card-accent-bar" style="background: linear-gradient(90deg, #34d399cc, transparent)"></div>
-            <div class="slideshow js-slideshow" data-accent="#34d399" data-title="Загребука">
-              <div class="slideshow-inner">
-                <img src="zag1.png" alt="" class="slide" />
-                <img src="zag2.png" alt="" class="slide" />
+          <!-- ③ Пельmanь онлайн (заморозка) -->
+          <div class="proj-item js-proj-item" data-id="pelmen">
+            <button class="proj-row" data-proj="pelmen" aria-expanded="false">
+              <div class="proj-row-bg" style="background-image:url(pelmen1.png)"></div>
+              <div class="proj-row-left">
+                <span class="proj-row-title">Пельmanь онлайн</span>
+                <span class="proj-row-desc">Побег пельменей из морозилки</span>
               </div>
-              <div class="slide-placeholder" style="background: linear-gradient(135deg, rgba(52,211,153,0.13), rgba(52,211,153,0.04))">
-                <span style="color:#34d399">Загребука</span>
+              <div class="proj-row-right">
+                <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
+                <span class="badge badge--frozen">В заморозке</span>
+                <span class="proj-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
               </div>
-              <div class="slide-dots js-dots"></div>
+            </button>
+            <div class="proj-panel" id="proj-panel-pelmen">
+              <div class="proj-panel-inner card js-card-inner" data-index="2">
+                <div class="card-accent-bar" style="background:linear-gradient(90deg,#60a5facc,transparent)"></div>
+                <div class="slideshow js-slideshow" data-accent="#60a5fa" data-title="Пельmanь онлайн">
+                  <div class="slideshow-inner">
+                    <img src="pelmen1.png" alt="" class="slide"/>
+                  </div>
+                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(96,165,250,.13),rgba(96,165,250,.04))">
+                    <span style="color:#60a5fa">Пельmanь онлайн</span>
+                  </div>
+                  <div class="img-progress">
+                    <div class="img-progress-top">
+                      <span class="img-progress-label">Прогресс разработки</span>
+                      <span class="img-progress-pct" style="color:#60a5fa">40%</span>
+                    </div>
+                    <div class="img-progress-track">
+                      <div class="img-progress-fill js-img-progress" data-pct="40" style="background:linear-gradient(90deg,#60a5fa,#93c5fd)"></div>
+                    </div>
+                  </div>
+                  <div class="slide-dots js-dots"></div>
+                </div>
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class="card-date">2025</span>
+                    <span class="badge badge--frozen">В заморозке</span>
+                  </div>
+                  <p class="card-title">Пельmanь онлайн</p>
+                  <div class="platform-pills">
+                    <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
+                    <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Мультиплеер</span>
+                  </div>
+                  <p class="card-desc">Побег пельменей из морозилки. Онлайн-мультиплеер с друзьями и хаотичный геймплей. Временно на паузе.</p>
+                  <div class="card-footer"><p class="card-soon">На паузе</p></div>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-date">2024</span>
+          </div>
+
+          <!-- ④ Загребука (выпущено) -->
+          <div class="proj-item js-proj-item" data-id="zagrebuka">
+            <button class="proj-row" data-proj="zagrebuka" aria-expanded="false">
+              <div class="proj-row-bg" style="background-image:url(zag1.png)"></div>
+              <div class="proj-row-left">
+                <span class="proj-row-title">Загребука</span>
+                <span class="proj-row-desc">Android · Конкурс Озон Дизайн</span>
+              </div>
+              <div class="proj-row-right">
+                <span class="pill" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.08)">Android</span>
                 <span class="badge badge--done">Выпущено</span>
+                <span class="proj-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
               </div>
-              <p class="card-title">Загребука</p>
-              <div class="platform-pills">
-                <span class="pill" style="color:#34d399; border-color:rgba(52,211,153,0.27); background:rgba(52,211,153,0.06)">Android</span>
-              </div>
-              <p class="card-desc">Игра для конкурса Озон Дизайн. Удалена из гугл плей</p>
-              <div class="card-footer">
-                <a href="https://play.google.com/store/apps/details?id=com.Markusell.BLOPGLITCHalpha" target="_blank" class="btn btn--sm">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.851l1.908 1.104a1 1 0 0 1 0 1.732l-1.908 1.104L15.393 12zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
-                  Google Play [недоступно]
-                </a>
+            </button>
+            <div class="proj-panel" id="proj-panel-zagrebuka">
+              <div class="proj-panel-inner card js-card-inner" data-index="3">
+                <div class="card-accent-bar" style="background:linear-gradient(90deg,#34d399cc,transparent)"></div>
+                <div class="slideshow js-slideshow" data-accent="#34d399" data-title="Загребука">
+                  <div class="slideshow-inner">
+                    <img src="zag1.png" alt="" class="slide"/>
+                    <img src="zag2.png" alt="" class="slide"/>
+                  </div>
+                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(52,211,153,.13),rgba(52,211,153,.04))">
+                    <span style="color:#34d399">Загребука</span>
+                  </div>
+                  <div class="slide-dots js-dots"></div>
+                </div>
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class="card-date">2024</span>
+                    <span class="badge badge--done">Выпущено</span>
+                  </div>
+                  <p class="card-title">Загребука</p>
+                  <div class="platform-pills">
+                    <span class="pill" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.08)">Android</span>
+                  </div>
+                  <p class="card-desc">Игра для конкурса Озон Дизайн. Выпущена в Google Play, доступна бесплатно.</p>
+                  <div class="card-footer">
+                    <a href="https://play.google.com/store/apps/details?id=com.Markusell.BLOPGLITCHalpha" target="_blank" class="btn btn--sm">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.851l1.908 1.104a1 1 0 0 1 0 1.732l-1.908 1.104L15.393 12zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+                      Google Play
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- Блоп Глитч -->
-          <article class="card js-card" data-index="3">
-            <div class="card-accent-bar" style="background: linear-gradient(90deg, #c084fccc, transparent)"></div>
-            <div class="slideshow js-slideshow" data-accent="#c084fc" data-title="Блоп Глитч">
-              <div class="slideshow-inner">
-                <img src="blop1.png" alt="" class="slide" />
-                <img src="blop2.png" alt="" class="slide" />
-                <img src="blop3.png" alt="" class="slide" />
+          <!-- ⑤ Блоп Глитч (выпущено) -->
+          <div class="proj-item js-proj-item" data-id="blop">
+            <button class="proj-row" data-proj="blop" aria-expanded="false">
+              <div class="proj-row-bg" style="background-image:url(blop1.png)"></div>
+              <div class="proj-row-left">
+                <span class="proj-row-title">Блоп Глитч</span>
+                <span class="proj-row-desc">Первая завершённая игра</span>
               </div>
-              <div class="slide-placeholder" style="background: linear-gradient(135deg, rgba(192,132,252,0.13), rgba(192,132,252,0.04))">
-                <span style="color:#c084fc">Блоп Глитч</span>
-              </div>
-              <div class="slide-dots js-dots"></div>
-            </div>
-            <div class="card-body">
-              <div class="card-meta">
-                <span class="card-date">2023</span>
+              <div class="proj-row-right">
+                <span class="pill" style="color:#c084fc;border-color:rgba(192,132,252,.3);background:rgba(192,132,252,.08)">Windows</span>
                 <span class="badge badge--done">Выпущено</span>
+                <span class="proj-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
               </div>
-              <p class="card-title">Блоп Глитч</p>
-              <div class="platform-pills">
-                <span class="pill" style="color:#c084fc; border-color:rgba(192,132,252,0.27); background:rgba(192,132,252,0.06)">Windows</span>
-              </div>
-              <p class="card-desc">Первая наша полноценная игра про приключение Санёчка в мире игрушек БЛОПТОП.</p>
-              <div class="card-footer">
-                <a href="https://markuselltop.itch.io/blopglitch" target="_blank" class="btn btn--sm">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v.8c0 1.006.94 1.875 1.8 1.875.962 0 1.87-.87 1.87-1.875 0 1.006.88 1.875 1.84 1.875s1.87-.87 1.87-1.875c0 1.006.88 1.875 1.84 1.875.963 0 1.84-.87 1.84-1.875 0 1.006.906 1.875 1.869 1.875s1.869-.87 1.869-1.875c0 1.006.877 1.875 1.839 1.875.963 0 1.839-.87 1.839-1.875s.883-1.875 1.845-1.875c.963 0 1.845.87 1.845 1.875V4.95c-.02-.62-2.082-2.99-3.13-3.612C16.977.69 13.17.5 12 .5c-1.17 0-4.846.18-8.87.838zm9.345 5.637a17.48 17.48 0 0 1 1.328.06c1.006.095 1.984.327 2.405.584L16.5 9.5c-.6-.17-1.5-.3-3-.3-1.5 0-2.35.13-2.95.3l-.208-1.88c.421-.257 1.4-.489 2.405-.584a17.74 17.74 0 0 1 1.328-.06zM6.55 9.74l.097.886c-.63.33-1.097.793-1.097 1.624v1.5c0 1.2 1.1 2.1 2.5 2.1h7.9c1.4 0 2.5-.9 2.5-2.1v-1.5c0-.831-.467-1.293-1.097-1.624l.097-.886c1.297.608 2 1.614 2 2.51v1.5c0 1.9-1.6 3.1-3.5 3.1H8c-1.9 0-3.5-1.2-3.5-3.1v-1.5c0-.896.703-1.902 2-2.51zm5.45.76c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/></svg>
-                  Itch.io
-                </a>
+            </button>
+            <div class="proj-panel" id="proj-panel-blop">
+              <div class="proj-panel-inner card js-card-inner" data-index="4">
+                <div class="card-accent-bar" style="background:linear-gradient(90deg,#c084fccc,transparent)"></div>
+                <div class="slideshow js-slideshow" data-accent="#c084fc" data-title="Блоп Глитч">
+                  <div class="slideshow-inner">
+                    <img src="blop1.png" alt="" class="slide"/>
+                    <img src="blop2.png" alt="" class="slide"/>
+                    <img src="blop3.png" alt="" class="slide"/>
+                  </div>
+                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(192,132,252,.13),rgba(192,132,252,.04))">
+                    <span style="color:#c084fc">Блоп Глитч</span>
+                  </div>
+                  <div class="slide-dots js-dots"></div>
+                </div>
+                <div class="card-body">
+                  <div class="card-meta">
+                    <span class="card-date">2023</span>
+                    <span class="badge badge--done">Выпущено</span>
+                  </div>
+                  <p class="card-title">Блоп Глитч</p>
+                  <div class="platform-pills">
+                    <span class="pill" style="color:#c084fc;border-color:rgba(192,132,252,.3);background:rgba(192,132,252,.08)">Windows</span>
+                  </div>
+                  <p class="card-desc">Первая завершённая игра. Приключение Санёчка в мире игрушек БЛОПТОП.</p>
+                  <div class="card-footer">
+                    <a href="https://markuselltop.itch.io/blopglitch" target="_blank" class="btn btn--sm">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v.8c0 1.006.94 1.875 1.8 1.875.962 0 1.87-.87 1.87-1.875 0 1.006.88 1.875 1.84 1.875s1.87-.87 1.87-1.875c0 1.006.88 1.875 1.84 1.875.963 0 1.84-.87 1.84-1.875 0 1.006.906 1.875 1.869 1.875s1.869-.87 1.869-1.875c0 1.006.877 1.875 1.839 1.875.963 0 1.839-.87 1.839-1.875s.883-1.875 1.845-1.875c.963 0 1.845.87 1.845 1.875V4.95c-.02-.62-2.082-2.99-3.13-3.612C16.977.69 13.17.5 12 .5c-1.17 0-4.846.18-8.87.838zm9.345 5.637a17.48 17.48 0 0 1 1.328.06c1.006.095 1.984.327 2.405.584L16.5 9.5c-.6-.17-1.5-.3-3-.3-1.5 0-2.35.13-2.95.3l-.208-1.88c.421-.257 1.4-.489 2.405-.584a17.74 17.74 0 0 1 1.328-.06zM6.55 9.74l.097.886c-.63.33-1.097.793-1.097 1.624v1.5c0 1.2 1.1 2.1 2.5 2.1h7.9c1.4 0 2.5-.9 2.5-2.1v-1.5c0-.831-.467-1.293-1.097-1.624l.097-.886c1.297.608 2 1.614 2 2.51v1.5c0 1.9-1.6 3.1-3.5 3.1H8c-1.9 0-3.5-1.2-3.5-3.1v-1.5c0-.896.703-1.902 2-2.51zm5.45.76c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/></svg>
+                      Itch.io
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </article>
+          </div>
+
+        </div><!-- /proj-list -->
+      </div>
+    </section>
+
+    <!-- CREATIVE -->
+    <section class="creative-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Творчество</span>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="creative-grid">
+
+          <!-- Music track -->
+          <div class="creative-card creative-card--music">
+            <div class="creative-card-bg" style="background:linear-gradient(135deg,rgba(167,139,250,.18),rgba(236,72,153,.08))"></div>
+            <div class="creative-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <div class="creative-info">
+              <p class="creative-title">Трек без названия</p>
+              <p class="creative-sub">Электроника · 2025</p>
+              <span class="badge badge--active" style="margin-top:8px;display:inline-flex"><span class="badge-dot"></span>В работе</span>
+            </div>
+            <div class="creative-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <!-- Painting 1 -->
+          <div class="creative-card creative-card--art">
+            <div class="creative-card-bg" style="background:linear-gradient(135deg,rgba(251,146,60,.15),rgba(234,179,8,.08))"></div>
+            <div class="creative-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10"/><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="creative-info">
+              <p class="creative-title">Картина #1</p>
+              <p class="creative-sub">Акрил · 2025</p>
+            </div>
+          </div>
+
+          <!-- Painting 2 -->
+          <div class="creative-card creative-card--art">
+            <div class="creative-card-bg" style="background:linear-gradient(135deg,rgba(34,211,238,.15),rgba(99,102,241,.08))"></div>
+            <div class="creative-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10"/><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="creative-info">
+              <p class="creative-title">Картина #2</p>
+              <p class="creative-sub">Цифровая · 2025</p>
+            </div>
+          </div>
 
         </div>
       </div>
