@@ -1,214 +1,107 @@
-// ── Sticky bar ────────────────────────────────────────────────────────────
-function initStickyBar() {
+/* ── Sticky bar ─────────────────────────────────────────────── */
+(function initStickyBar() {
   const bar  = document.getElementById('sticky-bar');
   const hero = document.getElementById('hero');
   if (!bar || !hero) return;
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      bar.classList.toggle('visible', !entry.isIntersecting);
-      bar.setAttribute('aria-hidden', entry.isIntersecting ? 'true' : 'false');
-    },
+  const io = new IntersectionObserver(
+    ([entry]) => bar.classList.toggle('visible', !entry.isIntersecting),
     { threshold: 0 }
   );
-  observer.observe(hero);
-}
+  io.observe(hero);
+})();
 
-// ── Project accordion ─────────────────────────────────────────────────────
-function initAccordion() {
-  let currentId = null;
-
-  document.querySelectorAll('.proj-row').forEach((btn) => {
+/* ── Accordion ──────────────────────────────────────────────── */
+(function initAccordion() {
+  document.querySelectorAll('.proj-row').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = btn.dataset.proj;
-      const panel = document.getElementById('proj-panel-' + id);
-      if (!panel) return;
+      const panel = btn.nextElementSibling;
+      if (!panel || !panel.classList.contains('proj-panel')) return;
+      const isOpen = panel.classList.contains('open');
 
-      if (currentId === id) {
-        // collapse
-        collapsePanel(id, panel, btn);
-        currentId = null;
+      if (isOpen) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          panel.style.maxHeight = '0px';
+          panel.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
       } else {
-        // collapse previous
-        if (currentId) {
-          const prevPanel = document.getElementById('proj-panel-' + currentId);
-          const prevBtn = document.querySelector('.proj-row[data-proj="' + currentId + '"]');
-          collapsePanel(currentId, prevPanel, prevBtn);
-        }
-        // expand new
-        expandPanel(id, panel, btn);
-        currentId = id;
+        panel.style.maxHeight = '0px';
+        panel.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(() => {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        });
+        panel.addEventListener('transitionend', () => {
+          if (panel.classList.contains('open')) panel.style.maxHeight = 'none';
+        }, { once: true });
       }
     });
   });
+})();
 
-  function expandPanel(id, panel, btn) {
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    panel.classList.add('open');
-    // set max-height to scrollHeight for animation, then auto
-    panel.style.maxHeight = panel.scrollHeight + 'px';
-    panel.addEventListener('transitionend', function onEnd() {
-      if (panel.classList.contains('open')) panel.style.maxHeight = 'none';
-      panel.removeEventListener('transitionend', onEnd);
-    }, { once: true });
-    // Animate progress bars inside
-    panel.querySelectorAll('.js-img-progress').forEach((fill) => {
-      setTimeout(() => { fill.style.width = fill.dataset.pct + '%'; }, 300);
+/* ── Progress bars ──────────────────────────────────────────── */
+(function initProgressBars() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.width = (el.dataset.pct || '0') + '%';
+        io.unobserve(el);
+      }
     });
-    // Init slideshows inside if not already done
-    panel.querySelectorAll('.js-slideshow:not([data-inited])').forEach(initOneSlideshow);
-  }
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.js-img-progress').forEach(el => io.observe(el));
+})();
 
-  function collapsePanel(id, panel, btn) {
-    if (!panel || !btn) return;
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    panel.classList.remove('open');
-    // reset max-height from 'none' to current px so transition works
-    panel.style.maxHeight = panel.scrollHeight + 'px';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => { panel.style.maxHeight = '0px'; });
-    });
-  }
-}
+/* ── Slideshows ─────────────────────────────────────────────── */
+(function initSlideshows() {
+  document.querySelectorAll('.js-slideshow').forEach(show => {
+    const slides      = show.querySelectorAll('.slide');
+    const dotsWrap    = show.querySelector('.js-dots');
+    const placeholder = show.querySelector('.slide-placeholder');
+    const accent      = show.dataset.accent || '#a78bfa';
 
-// ── Slideshow ─────────────────────────────────────────────────────────────
-function initOneSlideshow(wrap) {
-  wrap.setAttribute('data-inited', '1');
-  const accent = wrap.dataset.accent || '#fff';
-  const slides = Array.from(wrap.querySelectorAll('.slide'));
-  const dotsEl = wrap.querySelector('.js-dots');
-  const placeholder = wrap.querySelector('.slide-placeholder');
+    if (!slides.length) return;
 
-  if (!slides.length) return;
+    let current = 0;
+    let timer;
 
-  const errored = slides.map(() => false);
-  const loaded  = slides.map(() => false);
-  let cur = 0;
-  let timer = null;
-
-  function validIdx() { return slides.map((_,i) => i).filter(i => !errored[i]); }
-
-  function show(idx) {
-    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-    const valid = validIdx();
-    (dotsEl ? dotsEl.querySelectorAll('.slide-dot') : []).forEach((d, i) => d.classList.toggle('active', valid[i] === idx));
-    cur = idx;
-    if (placeholder) placeholder.classList.toggle('hidden', !errored[idx] && loaded[idx]);
-  }
-
-  function buildDots() {
-    if (!dotsEl) return;
-    dotsEl.innerHTML = '';
-    const valid = validIdx();
-    if (valid.length <= 1) return;
-    valid.forEach((realIdx) => {
+    const dots = Array.from(slides).map((_, i) => {
       const d = document.createElement('button');
-      d.className = 'slide-dot';
+      d.className = 'slide-dot' + (i === 0 ? ' active' : '');
       d.style.setProperty('--dot-color', accent);
-      d.addEventListener('click', () => { show(realIdx); resetTimer(); });
-      dotsEl.appendChild(d);
+      d.addEventListener('click', () => { go(i); resetTimer(); });
+      dotsWrap && dotsWrap.appendChild(d);
+      return d;
     });
-  }
 
-  function next() {
-    const valid = validIdx();
-    if (valid.length < 2) return;
-    const pos = valid.indexOf(cur);
-    show(valid[(pos + 1) % valid.length]);
-  }
+    function go(idx) {
+      slides[current].classList.remove('active');
+      dots[current] && dots[current].classList.remove('active');
+      current = idx;
+      slides[current].classList.add('active');
+      dots[current] && dots[current].classList.add('active');
+      if (placeholder) {
+        const hasLoaded = slides[current].complete && slides[current].naturalWidth > 0;
+        placeholder.classList.toggle('hidden', hasLoaded);
+      }
+    }
 
-  function resetTimer() {
-    clearInterval(timer);
-    if (validIdx().length > 1) timer = setInterval(next, 3000);
-  }
+    function next() { go((current + 1) % slides.length); }
+    function resetTimer() { clearInterval(timer); timer = setInterval(next, 3800); }
 
-  slides.forEach((img, i) => {
-    img.addEventListener('load', () => {
-      loaded[i] = true; buildDots();
-      if (i === 0) show(0);
-      resetTimer();
+    slides.forEach(img => {
+      img.addEventListener('load', () => {
+        if (parseInt(img.dataset.index ?? '0') === current && placeholder) {
+          placeholder.classList.add('hidden');
+        }
+      });
     });
-    img.addEventListener('error', () => {
-      errored[i] = true; buildDots();
-      if (i === cur) { const v = validIdx(); if (v.length) show(v[0]); }
-    });
+
+    go(0);
+    resetTimer();
   });
-
-  resetTimer();
-}
-
-function initSlideshows() {
-  // Only init slideshows that are NOT inside a proj-panel (those are lazy)
-  document.querySelectorAll('.js-slideshow:not(.proj-panel .js-slideshow)').forEach(initOneSlideshow);
-}
-
-// ── Image progress bars (for non-accordion context) ───────────────────────
-function initImgProgress() {
-  // Outside panels — trigger on scroll
-  const fills = document.querySelectorAll('.js-img-progress:not(.proj-panel .js-img-progress)');
-  if (!fills.length) return;
-  if (!('IntersectionObserver' in window)) {
-    fills.forEach(f => { f.style.width = f.dataset.pct + '%'; });
-    return;
-  }
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const fill = entry.target;
-      setTimeout(() => { fill.style.width = fill.dataset.pct + '%'; }, 200);
-      observer.unobserve(fill);
-    }),
-    { threshold: 0.3 }
-  );
-  fills.forEach(f => observer.observe(f));
-}
-
-// ── Card entrance animations ──────────────────────────────────────────────
-function initCards() {
-  const cards = document.querySelectorAll('.js-card-inner');
-  cards.forEach(c => {
-    c.style.opacity = '0';
-    c.style.transform = 'translateY(12px)';
-    c.style.transition = 'opacity .4s ease, transform .4s ease';
-  });
-  if (!('IntersectionObserver' in window)) {
-    cards.forEach(c => { c.style.opacity = '1'; c.style.transform = 'translateY(0)'; });
-    return;
-  }
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const card = entry.target;
-      const delay = (parseInt(card.dataset.index) || 0) * 60;
-      setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, delay);
-      observer.unobserve(card);
-    }),
-    { threshold: 0.05 }
-  );
-  cards.forEach(c => observer.observe(c));
-}
-
-// ── Hero fade-in ──────────────────────────────────────────────────────────
-function initHero() {
-  const els = [document.querySelector('.logo-title'), document.querySelector('.hero-row')];
-  els.forEach((el, i) => {
-    if (!el) return;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    el.style.transition = `opacity .45s ease ${i * 0.1}s, transform .45s ease ${i * 0.1}s`;
-  });
-  requestAnimationFrame(() => setTimeout(() => {
-    els.forEach(el => { if (!el) return; el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
-  }, 40));
-}
-
-// ── Boot ──────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  initHero();
-  initStickyBar();
-  initAccordion();
-  initSlideshows();
-  initImgProgress();
-  initCards();
-});
+})();
