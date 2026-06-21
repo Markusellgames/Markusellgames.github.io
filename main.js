@@ -51,8 +51,6 @@ function initAccordion() {
       if (panel.classList.contains('open')) panel.style.maxHeight = 'none';
       panel.removeEventListener('transitionend', onEnd);
     }, { once: true });
-    // Scroll row into view
-    setTimeout(() => btn.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
     // Animate progress bars inside
     panel.querySelectorAll('.js-img-progress').forEach((fill) => {
       setTimeout(() => { fill.style.width = fill.dataset.pct + '%'; }, 300);
