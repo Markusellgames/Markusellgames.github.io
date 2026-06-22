@@ -6,6 +6,7 @@
   --border:   rgba(255,255,255,0.08);
   --border-h: rgba(255,255,255,0.20);
   --white:    #f5f0ff;
+  --purple-l: #a78bfa;
   --font:     'Montserrat', sans-serif;
 }
 
@@ -51,29 +52,11 @@ button { font-family: var(--font); cursor: pointer; }
   text-transform: uppercase; letter-spacing: 0.08em;
   transition: color .2s, border-color .2s, background .2s; white-space: nowrap;
 }
-.btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+.btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 .btn:hover { color: var(--white); border-color: var(--border-h); background: rgba(255,255,255,0.09); }
 .btn--accent { background: #229ED9; border-color: #229ED9; color: #fff; box-shadow: 0 4px 20px rgba(34,158,217,.18); }
 .btn--accent:hover { background: #1a8bc0; border-color: #1a8bc0; color: #fff; }
 .btn--sm { padding: 7px 14px; font-size: 0.7rem; }
-.playmarket-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--font); font-size: 0.58rem; font-weight: 900; font-style: italic;
-  background: #01875f; color: #fff;
-  padding: 2px 5px; border-radius: 3px;
-  letter-spacing: 0.03em; line-height: 1;
-  text-transform: none; white-space: nowrap; flex-shrink: 0;
-}
-
-/* itch.io brand badge — sharp at any size */
-.itchio-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--font); font-size: 0.58rem; font-weight: 900; font-style: italic;
-  background: #fa5c5c; color: #fff;
-  padding: 2px 5px; border-radius: 3px;
-  letter-spacing: 0.03em; line-height: 1;
-  text-transform: none; white-space: nowrap; flex-shrink: 0;
-}
 
 /* ── Hero ──────────────────────────────────────────────── */
 .hero { position: relative; padding: 72px 0 60px; border-bottom: 1px solid var(--border); overflow: hidden; }
@@ -95,25 +78,12 @@ button { font-family: var(--font); cursor: pointer; }
 .hero-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .social-row { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; flex-shrink: 0; }
 
-/* Logo image in title */
-.logo-img {
-  display: inline-block; height: 0.85em; width: auto; aspect-ratio: 1;
-  object-fit: cover; border-radius: 0.1em;
-  vertical-align: middle; margin-right: 0.15em; position: relative; top: -0.04em;
-}
+/* Logo in title */
+.logo-img { display: inline-block; height: 0.85em; width: auto; aspect-ratio: 1; object-fit: cover; border-radius: 0.12em; vertical-align: middle; margin-right: 0.12em; position: relative; top: -0.05em; }
 
 @keyframes shimmer-gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
-/* ── Logo title — пропорциональное масштабирование ────── */
-.logo-title {
-  font-family: var(--font);
-  font-size: clamp(1.2rem, 8.5vw, 5.2rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
-}
+.logo-title { font-size: clamp(3rem,10vw,6.5rem); font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -0.04em; white-space: nowrap; }
 .logo-title .name { color: var(--white); }
 .logo-title .dev {
   background: linear-gradient(90deg,#a78bfa,#e879f9,#38bdf8,#f472b6,#a78bfa);
@@ -125,8 +95,8 @@ button { font-family: var(--font); cursor: pointer; }
 .tagline { font-size: clamp(0.85rem,2vw,1rem); font-weight: 500; color: rgba(255,255,255,0.4); max-width: 340px; line-height: 1.7; }
 
 /* ── Section heading ───────────────────────────────────── */
-.projects-section { padding: 36px 0 56px; }
-.creative-section  { padding: 0 0 72px; }
+.projects-section { padding: 72px 24px 56px; }
+.creative-section  { padding: 0 24px 72px; }
 
 .section-heading { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
 .section-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; color: rgba(255,255,255,0.3); white-space: nowrap; }
@@ -134,10 +104,9 @@ button { font-family: var(--font); cursor: pointer; }
 
 /* ── Badges ────────────────────────────────────────────── */
 .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
-.badge--done    { background: rgba(52,211,153,0.12);  color: #34d399; }
-.badge--frozen  { background: rgba(96,165,250,0.12);  color: #93c5fd; }
-.badge--active  { background: rgba(167,139,250,0.15); color: #c4b5fd; }
-.badge--removed { background: rgba(239,68,68,0.14);   color: #f87171; }
+.badge--done   { background: rgba(52,211,153,0.12);  color: #34d399; }
+.badge--frozen { background: rgba(96,165,250,0.12);  color: #93c5fd; }
+.badge--active { background: rgba(167,139,250,0.15); color: #c4b5fd; }
 
 .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: dot-pulse 1.8s ease-in-out infinite; flex-shrink: 0; }
 @keyframes dot-pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
@@ -145,7 +114,7 @@ button { font-family: var(--font); cursor: pointer; }
 /* ── Pills ─────────────────────────────────────────────── */
 .pill { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 2px 7px; border-radius: 4px; border: 1px solid; white-space: nowrap; }
 
-/* ── Project list ──────────────────────────────────────── */
+/* ── Project accordion list ────────────────────────────── */
 .proj-list { display: flex; flex-direction: column; gap: 6px; }
 
 .proj-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: rgba(255,255,255,0.025); transition: border-color .25s; }
@@ -166,8 +135,10 @@ button { font-family: var(--font); cursor: pointer; }
 .proj-row-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
-  opacity: 0.18; filter: blur(1px) saturate(0.6);
-  pointer-events: none; transition: opacity .3s;
+  opacity: 0.18;
+  filter: blur(1px) saturate(0.6);
+  pointer-events: none;
+  transition: opacity .3s;
 }
 .proj-row:hover .proj-row-bg { opacity: 0.26; }
 .proj-row.open  .proj-row-bg { opacity: 0.30; }
@@ -185,6 +156,7 @@ button { font-family: var(--font); cursor: pointer; }
 /* Panel (expandable) */
 .proj-panel { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .5s cubic-bezier(0.4,0,0.2,1), opacity .35s ease; }
 .proj-panel.open { opacity: 1; }
+
 .proj-panel-inner { border-radius: 0; border: none; background: none; }
 
 /* ── Card (inside panel) ───────────────────────────────── */
@@ -228,7 +200,6 @@ button { font-family: var(--font); cursor: pointer; }
 .card-desc { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.4); line-height: 1.6; flex: 1; }
 .card-footer { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
 .card-soon { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.18); }
-.card-removed-note { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(248,113,113,0.5); }
 
 /* ── Creative section ──────────────────────────────────── */
 .creative-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
@@ -267,8 +238,18 @@ button { font-family: var(--font); cursor: pointer; }
 .creative-waveform span:nth-child(15) { animation-delay: 0.40s; }
 @keyframes wave-bar { 0%,100%{height:4px} 50%{height:22px} }
 
+/* ── Fundraiser ────────────────────────────────────────── */
+.fundraiser-section { border-top: 1px solid var(--border); padding: 72px 24px; }
+.fundraiser-inner { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; justify-content: space-between; }
+.fundraiser-text { max-width: 360px; display: flex; flex-direction: column; gap: 12px; }
+.fundraiser-eyebrow { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: var(--purple-l); }
+.fundraiser-title { font-size: clamp(1.4rem,4vw,2rem); font-weight: 800; line-height: 1.2; color: var(--white); }
+.fundraiser-desc { font-size: 0.84rem; font-weight: 500; color: rgba(255,255,255,0.35); line-height: 1.7; }
+.fundraiser-widget { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: rgba(255,255,255,0.03); }
+.fundraiser-widget iframe { display: block; max-width: 100%; }
+
 /* ── Footer ────────────────────────────────────────────── */
-.footer { border-top: 1px solid var(--border); padding: 40px 0; }
+.footer { border-top: 1px solid var(--border); padding: 40px 24px; }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .store-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .footer-copy { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.18); }
@@ -277,5 +258,9 @@ button { font-family: var(--font); cursor: pointer; }
 @media (max-width: 600px) {
   .hero { padding: 56px 0 48px; }
   .hero-row { flex-direction: column; align-items: flex-start; }
+  .projects-section { padding: 56px 16px 40px; }
+  .creative-section { padding: 0 16px 56px; }
+  .fundraiser-section { padding: 56px 16px; }
   .proj-row-right .pill { display: none; }
+  .fundraiser-inner { justify-content: center; }
 }
