@@ -1,508 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Markusell Dev</title>
-  <link rel="icon" href="1000073415.png" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- STICKY BAR -->
-  <div id="sticky-bar" aria-hidden="true">
-    <div class="sticky-inner container">
-      <img src="logo.png" class="sticky-logo" alt="" />
-      <span class="sticky-name">Markusell<span class="sticky-dev"> Dev</span></span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Игры и приложения Markusell Dev — новые проекты, архив и ссылки на релизы."
+    />
+    <meta name="theme-color" content="#14171d" />
+    <title>Markusell Dev — проекты</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="word-field" id="word-field" aria-hidden="true">
+      <div class="word-field-inner" id="word-field-inner"></div>
     </div>
-  </div>
-
-  <!-- HEADER -->
-  <header class="hero" id="hero">
-    <div class="slime-wrap anim-slime" aria-hidden="true">
-      <div class="slime-blob slime-blob-1"></div>
-      <div class="slime-blob slime-blob-2"></div>
-      <div class="slime-blob slime-blob-3"></div>
-      <div class="slime-blob slime-blob-4"></div>
-    </div>
-    <div class="container hero-inner">
-      <div class="hero-title-block anim-hero-title">
-        <h1 class="logo-title">
-          <img src="logo.png" class="logo-img" alt="" />
-          <span class="name">Markusell</span><span class="dev"> Dev</span>
-        </h1>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="#top" aria-label="Markusell Dev — наверх">
+          <span>markusell</span><span class="wordmark-muted"> dev</span>
+        </a>
+        <nav class="social-links" aria-label="Социальные сети">
+          <a
+            class="social-link social-link-primary"
+            href="https://t.me/Markusellgames"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Telegram — Markusell Dev"
+          ><span class="marquee-window" aria-hidden="true"><span class="marquee-track">
+            <span class="marquee-group">
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+            </span>
+            <span class="marquee-group">
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+              <span class="marquee-item">markusell dev <b>·</b> telegram</span>
+            </span>
+          </span></span></a>
+          <a
+            class="social-link social-link-youtube"
+            href="https://youtube.com/@MARKUSELLGAMES"
+            target="_blank"
+            rel="noopener noreferrer"
+          >YouTube</a>
+        </nav>
       </div>
-      <div class="hero-row anim-hero-row">
-        <p class="tagline">Делаю игры и приложения. Иногда с чуваками.</p>
-        <div class="social-row">
-          <a href="https://t.me/Markusellgames" target="_blank" class="btn btn--accent">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            Markusell Dev
-          </a>
-          <a href="https://youtube.com/@MARKUSELLGAMES" target="_blank" class="btn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-            YouTube
-          </a>
-          <a href="https://markuselltop.itch.io" target="_blank" class="btn">
-            <img src="itchio-textless-black.svg" class="itchio-nav-logo" alt="itch.io" />
-            itch.io
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- MAIN -->
-  <main>
-
-    <!-- PROJECTS -->
-    <section class="projects-section">
-      <div class="container">
+    <main id="top" class="page-content">
+      <section class="projects" aria-labelledby="projects-title">
         <div class="section-heading">
-          <span class="section-label">проекты</span>
-          <div class="section-line"></div>
+          <h1 id="projects-title">Последние проекты <span>в разработке</span></h1>
+          <a
+            class="news-link"
+            href="https://t.me/Markusellgames"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Новости в Telegram <span aria-hidden="true">↗</span></a>
         </div>
 
-        <div class="proj-list">
-
-          <!-- ① ДВЕРИ (активная разработка) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-              <div class="proj-row-bg" style="background-image:url(.png)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">???</span>
-                <span class="proj-row-desc">Horror в стиле DOORS на Unity</span>
+        <div class="project-list">
+          <article class="project">
+            <div class="project-grid">
+              <time class="project-date" datetime="2026-10-02">2.10.2026</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">MUSIVISION</span>
+                  <span class="platform-tag">Quest · AR</span>
+                  <span class="project-actions">
+                    <a class="download-link download-link-telegram" href="https://t.me/Markusellgames/123" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↓</span> Скачать в Telegram</a>
+                  </span>
+                </span>
+                <span class="project-description">Автономный инструмент для написания черновых треков на гарнитурах Quest. Одновременно записывает виртуальные инструменты и микрофон в один MP3-файл.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
-                <span class="badge badge--active"><span class="badge-dot"></span>В разработке</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#e11d48cc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#e11d48">
-                  <div class="slideshow-inner">
-                    <img src=".png" alt="" class="slide"/>
-                  </div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(225,29,72,.13),rgba(225,29,72,.04))">
-                    <span style="color:#e11d48">???</span>
-                  </div>
-                  <div class="img-progress">
-                    <div class="img-progress-top">
-                      <span class="img-progress-label">Прогресс разработки</span>
-                      <span class="img-progress-pct" style="color:#e11d48">10%</span>
-                    </div>
-                    <div class="img-progress-track">
-                      <div class="img-progress-fill js-img-progress" data-pct="10" style="background:linear-gradient(90deg,#e11d48,#fb7185)"></div>
-                    </div>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">июнь 2026 — сейчас</span>
-                    <span class="badge badge--active"><span class="badge-dot"></span>В разработке</span>
-                  </div>
-                  <p class="card-title">???</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
-                    <span class="pill" style="color:#e11d48;border-color:rgba(225,29,72,.3);background:rgba(225,29,72,.08)">Unity</span>
-                  </div>
-                  <p class="card-desc">Атмосферный хоррор на юнити в стиле роблокса</p>
-                  <div class="card-footer"><p class="card-soon">Скоро</p></div>
-                </div>
+              <div class="project-side">
+                <span class="status status-active"><span class="status-dot"></span>В разработке</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- ② Народный плеер (в разработке) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-               <div class="proj-row-bg" style="background-image:url(np.jpg)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">Народный плеер</span>
-                <span class="proj-row-desc">Python · Музыка из Spotify с оффлайн-режимом</span>
+          <article class="project">
+            <div class="project-grid">
+              <time class="project-date" datetime="2026">2026</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">Народный плеер</span>
+                  <span class="platform-tag">Python</span>
+                </span>
+                <span class="project-description">Приложение на Python для музыки из Spotify и офлайн-воспроизведения.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#1db954;border-color:rgba(29,185,84,.3);background:rgba(29,185,84,.08)">Python</span>
-                <span class="badge badge--active"><span class="badge-dot"></span>В разработке</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#1db954cc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#1db954">
-                  <div class="slideshow-inner"></div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(29,185,84,.13),rgba(29,185,84,.04))">
-                    <span style="color:#1db954">Народный плеер</span>
-                  </div>
-                  <div class="img-progress">
-                    <div class="img-progress-top">
-                      <span class="img-progress-label">Прогресс разработки</span>
-                      <span class="img-progress-pct" style="color:#1db954">90%</span>
-                    </div>
-                    <div class="img-progress-track">
-                      <div class="img-progress-fill js-img-progress" data-pct="90" style="background:linear-gradient(90deg,#1db954,#4ade80)"></div>
-                    </div>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2026</span>
-                    <span class="badge badge--active"><span class="badge-dot"></span>В разработке</span>
-                  </div>
-                  <p class="card-title">Народный плеер</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#1db954;border-color:rgba(29,185,84,.3);background:rgba(29,185,84,.08)">Python</span>
-                  </div>
-                  <p class="card-desc">Программа на Python, которая скачивает музыку из Spotify и поддерживает оффлайн-воспроизведение треков. Разработка на 90% завершена.</p>
-                  <div class="card-footer"><p class="card-soon">Скачать скоро</p></div>
-                </div>
+              <div class="project-side">
+                <span class="status status-active"><span class="status-dot"></span>В разработке</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- ③ OneLife — Rust сервер (удалено) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-                <div class="proj-row-bg" style="background-image:url(rust.jpg)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">OneLife</span>
-                <span class="proj-row-desc">Rust · Сервер с одной жизнью на вайп</span>
+          <article class="project">
+            <div class="project-grid">
+              <time class="project-date" datetime="2025">2025</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">OneLife</span>
+                  <span class="platform-tag">Rust</span>
+                </span>
+                <span class="project-description">Сервер Rust с одной жизнью на вайп. Сервер закрыт.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)">Сервер</span>
-                <span class="badge badge--removed">Удалено</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#f97316cc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#f97316">
-                  <div class="slideshow-inner"></div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(249,115,22,.13),rgba(249,115,22,.04))">
-                    <span style="color:#f97316">OneLife</span>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2025</span>
-                    <span class="badge badge--removed">Удалено</span>
-                  </div>
-                  <p class="card-title">OneLife</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)">Сервер</span>
-                    <span class="pill" style="color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)">Rust</span>
-                  </div>
-                  <p class="card-desc">Сервер в игре Rust с концепцией одной жизни на весь вайп — умер и всё. Крутая идея, но меня опередили. Сервер закрыт.</p>
-                  <div class="card-footer">
-                    <p class="card-removed-note">Сервер закрыт</p>
-                  </div>
-                </div>
+              <div class="project-side">
+                <span class="status status-closed"><span class="status-dot"></span>Сервер закрыт</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- ④ Kurapov's Burgers (заморозка) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-              <div class="proj-row-bg" style="background-image:url(kura1.png)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">Kurapov's Burgers</span>
-                <span class="proj-row-desc">Бургерный дилер Курапов</span>
+          <article class="project">
+            <div class="project-grid">
+              <time class="project-date" datetime="2025">2025</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">Kurapov’s Burgers</span>
+                  <span class="platform-tag">Windows</span>
+                </span>
+                <span class="project-description">История про бургерного дилера Ивана Курапова и управление собственным заведением.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
-                <span class="badge badge--frozen">В заморозке</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#f97316cc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#f97316">
-                  <div class="slideshow-inner">
-                    <img src="kura1.png" alt="" class="slide"/>
-                    <img src="kura2.png" alt="" class="slide"/>
-                    <img src="kura3.png" alt="" class="slide"/>
-                  </div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(249,115,22,.13),rgba(249,115,22,.04))">
-                    <span style="color:#f97316">Kurapov's Burgers</span>
-                  </div>
-                  <div class="img-progress">
-                    <div class="img-progress-top">
-                      <span class="img-progress-label">Прогресс разработки</span>
-                      <span class="img-progress-pct" style="color:#f97316">60%</span>
-                    </div>
-                    <div class="img-progress-track">
-                      <div class="img-progress-fill js-img-progress" data-pct="60" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div>
-                    </div>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2025</span>
-                    <span class="badge badge--frozen">В заморозке</span>
-                  </div>
-                  <p class="card-title">Kurapov's Burgers</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
-                  </div>
-                  <p class="card-desc">История про бургерного дилера Ивана Курапова. Детализированная игра с механиками управления заведением. Временно на паузе.</p>
-                  <div class="card-footer"><p class="card-soon">На паузе</p></div>
-                </div>
+              <div class="project-side">
+                <span class="status status-paused"><span class="status-dot"></span>На паузе</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- ③ Пельmanь онлайн (заморозка) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-              <div class="proj-row-bg" style="background-image:url(pelmen1.png)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">Пельmanь онлайн</span>
-                <span class="proj-row-desc">Побег пельменей из морозилки</span>
+          <article class="project">
+            <div class="project-grid">
+              <time class="project-date" datetime="2025">2025</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">Пельмань онлайн</span>
+                  <span class="platform-tag">Windows · Online</span>
+                </span>
+                <span class="project-description">Мультиплеерный побег пельменей из морозилки.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
-                <span class="badge badge--frozen">В заморозке</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#60a5facc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#60a5fa">
-                  <div class="slideshow-inner">
-                    <img src="pelmen1.png" alt="" class="slide"/>
-                  </div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(96,165,250,.13),rgba(96,165,250,.04))">
-                    <span style="color:#60a5fa">Пельmanь онлайн</span>
-                  </div>
-                  <div class="img-progress">
-                    <div class="img-progress-top">
-                      <span class="img-progress-label">Прогресс разработки</span>
-                      <span class="img-progress-pct" style="color:#60a5fa">40%</span>
-                    </div>
-                    <div class="img-progress-track">
-                      <div class="img-progress-fill js-img-progress" data-pct="40" style="background:linear-gradient(90deg,#60a5fa,#93c5fd)"></div>
-                    </div>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2025</span>
-                    <span class="badge badge--frozen">В заморозке</span>
-                  </div>
-                  <p class="card-title">Пельmanь онлайн</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Windows</span>
-                    <span class="pill" style="color:#60a5fa;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.08)">Мультиплеер</span>
-                  </div>
-                  <p class="card-desc">Побег пельменей из морозилки. Онлайн-мультиплеер с друзьями и хаотичный геймплей. Временно на паузе.</p>
-                  <div class="card-footer"><p class="card-soon">На паузе</p></div>
-                </div>
+              <div class="project-side">
+                <span class="status status-paused"><span class="status-dot"></span>На паузе</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- ④ Загребука (удалено) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-              <div class="proj-row-bg" style="background-image:url(zag1.png)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">Загребука</span>
-                <span class="proj-row-desc">Android · Конкурс Озон Дизайн</span>
+          <article class="project">
+            <div class="project-grid">
+              <time class="project-date" datetime="2025">2025</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">Загребука</span>
+                  <span class="platform-tag">Android</span>
+                </span>
+                <span class="project-description">Игра для Android, созданная для конкурса Ozon Design. Сейчас недоступна.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)">Android</span>
-                <span class="badge badge--removed">Удалено</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#34d399cc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#34d399">
-                  <div class="slideshow-inner">
-                    <img src="zag1.png" alt="" class="slide"/>
-                    <img src="zag2.png" alt="" class="slide"/>
-                  </div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(52,211,153,.13),rgba(52,211,153,.04))">
-                    <span style="color:#34d399">Загребука</span>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2025</span>
-                    <span class="badge badge--removed">Удалено</span>
-                  </div>
-                  <p class="card-title">Загребука</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)">Android</span>
-                  </div>
-                  <p class="card-desc">Игра для конкурса Озон Дизайн. Была в Google Play. Больше недоступна для скачивания.</p>
-                  <div class="card-footer">
-                    <p class="card-removed-note">Удалено из всех магазинов</p>
-                  </div>
-                </div>
+              <div class="project-side">
+                <span class="status status-removed"><span class="status-dot"></span>Удалено</span>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- ⑤ Блоп Глитч (выпущено) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-              <div class="proj-row-bg" style="background-image:url(blop1.png)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">Блоп Глитч</span>
-                <span class="proj-row-desc">Первая полноценная завершённая игра</span>
+          <article class="project project-released">
+            <div class="project-grid">
+              <time class="project-date" datetime="2024">2024</time>
+              <div class="project-copy">
+                <span class="project-title-row">
+                  <span class="project-title">Блоп Глитч</span>
+                  <span class="platform-tag">Android</span>
+                  <span class="project-actions">
+                    <a class="download-link" href="https://markuselltop.itch.io/blopglitch" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↓</span> Скачать на itch.io <span aria-hidden="true"></span></a>
+                  </span>
+                </span>
+                <span class="project-description">Первая полноценная завершённая игра: приключение Санёчка в игрушечном мире БЛОПТОП.</span>
               </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)">Android</span>
-                <span class="badge badge--done">Выпущено</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#c084fccc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#c084fc">
-                  <div class="slideshow-inner">
-                    <img src="blop1.png" alt="" class="slide"/>
-                    <img src="blop2.png" alt="" class="slide"/>
-                    <img src="blop3.png" alt="" class="slide"/>
-                  </div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(192,132,252,.13),rgba(192,132,252,.04))">
-                    <span style="color:#c084fc">Блоп Глитч</span>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2024</span>
-                    <span class="badge badge--done">Выпущено</span>
-                  </div>
-                  <p class="card-title">Блоп Глитч</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)">Android</span>
-                  </div>
-                  <p class="card-desc">Первая полноценная завершённая игра. Приключение Санёчка в мире игрушек БЛОПТОП.</p>
-                  <div class="card-footer">
-                    <a href="https://markuselltop.itch.io/blopglitch" target="_blank" class="btn btn--sm">
-                      <span class="itchio-icon">itch.io</span>
-                      Скачать на Itch.io
-                    </a>
-                  </div>
-                </div>
+              <div class="project-side">
+                <span class="status status-released"><span class="status-dot"></span>Выпущено</span>
               </div>
             </div>
-          </div>
-
-          <!-- ⑥ Сигма Крипер и Сигма Свинка (удалено) -->
-          <div class="proj-item">
-            <button class="proj-row" aria-expanded="false">
-              <div class="proj-row-bg" style="background-image:url(sigma1.png)"></div>
-              <div class="proj-row-left">
-                <span class="proj-row-title">Сигма Крипер и Сигма Свинка</span>
-                <span class="proj-row-desc">Android · Minecraft-пародия</span>
-              </div>
-              <div class="proj-row-right">
-                <span class="pill" style="color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)">Android</span>
-                <span class="badge badge--removed">Удалено</span>
-                <span class="proj-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-              </div>
-            </button>
-            <div class="proj-panel">
-              <div class="proj-panel-inner card">
-                <div class="card-accent-bar" style="background:linear-gradient(90deg,#f87171cc,transparent)"></div>
-                <div class="slideshow js-slideshow" data-accent="#f87171">
-                  <div class="slideshow-inner">
-                    <img src="sigma1.png" alt="" class="slide"/>
-                    <img src="sigma2.png" alt="" class="slide"/>
-                    <img src="sigma3.png" alt="" class="slide"/>
-                  </div>
-                  <div class="slide-placeholder" style="background:linear-gradient(135deg,rgba(248,113,113,.13),rgba(248,113,113,.04))">
-                    <span style="color:#f87171">Сигма Крипер</span>
-                  </div>
-                  <div class="slide-dots js-dots"></div>
-                </div>
-                <div class="card-body">
-                  <div class="card-meta">
-                    <span class="card-date">2023</span>
-                    <span class="badge badge--removed">Удалено</span>
-                  </div>
-                  <p class="card-title">Сигма Крипер и Сигма Свинка</p>
-                  <div class="platform-pills">
-                    <span class="pill" style="color:#f87171;border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.08)">Android</span>
-                  </div>
-                  <p class="card-desc">Minecraft-пародия для Android. Была доступна для скачивания, но удалена. Скачать нельзя.</p>
-                  <div class="card-footer">
-                    <p class="card-removed-note">Удалено · Скачать невозможно</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /proj-list -->
-      </div>
-    </section>
-
-    <!-- CREATIVE -->
-    <section class="creative-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-label">Творчество</span>
-          <div class="section-line"></div>
+          </article>
         </div>
+      </section>
 
-        <div class="music-card">
-          <div class="music-card-glow"></div>
-          <div class="music-card-bar"></div>
-          <div class="music-card-content">
-            <div class="music-card-left">
-              <p class="music-eyebrow">Музыка · Markusell</p>
-              <h2 class="music-title">Будущий<br>трек</h2>
-              <p class="music-meta">??? · 2027</p>
-              <span class="badge badge--active" style="margin-top:10px;display:inline-flex"><span class="badge-dot"></span>В работе</span>
-            </div>
-            <div class="music-viz-wrap" aria-hidden="true">
-              <div class="music-viz" id="music-viz"></div>
-            </div>
-          </div>
+      <footer class="site-footer">
+        <div class="footer-links">
+          <a href="https://markuselltop.itch.io" target="_blank" rel="noopener noreferrer">Все игры на itch.io ↗</a>
+          <a href="https://play.google.com/store/apps/dev?id=7617298809515680380" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
         </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="store-row">
-          <a href="https://markuselltop.itch.io" target="_blank" class="btn btn--sm">
-            <span class="itchio-icon">itch.io</span>
-            Все игры на Itch.io
-          </a>
-          <a href="https://play.google.com/store/apps/developer?id=Markusell" target="_blank" class="btn btn--sm">
-            <span class="playmarket-icon">Google Play</span>
-            Все игры в Google Play
-          </a>
-        </div>
-        <p class="footer-copy">© 2026 Markusell Dev</p>
-      </div>
-    </footer>
-
-  </main>
-
-  <script src="main.js"></script>
-</body>
+        <span class="copyright">© <span id="year">2026</span> Markusell Dev</span>
+      </footer>
+    </main>
+  </body>
 </html>
