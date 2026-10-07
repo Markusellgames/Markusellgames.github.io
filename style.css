@@ -330,7 +330,7 @@ a {
 
 .project {
   border-bottom: 1px solid var(--line);
-  transition: background-color .22s ease, border-color .22s ease;
+  transition: background-color .05s ease, border-color .05s ease;
 }
 
 .project:hover {
